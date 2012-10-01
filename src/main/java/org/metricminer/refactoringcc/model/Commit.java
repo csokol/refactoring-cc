@@ -21,4 +21,7 @@ public class Commit {
         this(message, date, sourcesModified, null);
     }
 
+    public String getMessage() {
+        return message;
+    }
 }

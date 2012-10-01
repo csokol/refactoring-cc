@@ -8,6 +8,8 @@ import java.util.Map;
 
 import org.metricminer.refactoringcc.charts.CCByDateDatasetGenerator;
 import org.metricminer.refactoringcc.charts.SimpleChart;
+import org.metricminer.refactoringcc.finder.RefactoringFinder;
+import org.metricminer.refactoringcc.model.Commit;
 import org.metricminer.refactoringcc.model.ProjectHistory;
 import org.metricminer.refactoringcc.model.SourceCode;
 
@@ -25,6 +27,11 @@ public class Main {
                 .computeDatasetFor(history);
         SimpleChart simpleChart = new SimpleChart(ccByDate);
         simpleChart.saveAsPng("grafico.png");
+        
+        List<Commit> commits = new RefactoringFinder().find(history.commits());
+        for (Commit commit : commits) {
+            System.out.println(commit.getMessage());
+        }
 
     }
 
