@@ -27,9 +27,9 @@ public class ProjectHistoryTest {
         firstDate.setTime(simpleDateFormat.parse("2012-11-1"));
         secondDate.setTime(simpleDateFormat.parse("2012-12-1"));
         
-        sources.add(new SourceCode("message", firstDate, "NEW", "1", "class.java"));
-        sources.add(new SourceCode("message", firstDate, "NEW", "1", "class2.java"));
-        sources.add(new SourceCode("message", secondDate, "MODIFICATION", "1", "class2.java"));
+        sources.add(new SourceCode("message", firstDate, "NEW", 1, "class.java"));
+        sources.add(new SourceCode("message", firstDate, "NEW", 1, "class2.java"));
+        sources.add(new SourceCode("message", secondDate, "MODIFICATION", 1, "class2.java"));
         
         ProjectHistoryFactory factory = new ProjectHistoryFactory();
         history = factory.build(sources);

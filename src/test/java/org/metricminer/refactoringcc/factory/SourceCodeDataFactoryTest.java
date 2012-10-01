@@ -11,14 +11,14 @@ import java.util.List;
 import org.junit.Test;
 import org.metricminer.refactoringcc.model.SourceCode;
 
-public class SourceCodeFactoryTest {
+public class SourceCodeDataFactoryTest {
 
     @Test
     public void shouldBuildOneSource() {
         String input = "\"message\";\"date\";\"kind\";\"cc\";\"name\";;;;;;;;\n" +
         		"\"initial checkin\";\"2000-01-13 08:42:41.0\";\"NEW\";2;\"src/main/com/ice/tar/InvalidHeaderException.java\";;;;;;;;";
         InputStream is = new ByteArrayInputStream(input.getBytes());
-        SourceCodeFactory factory = new SourceCodeFactory(is);
+        SourceCodeDataFactory factory = new SourceCodeDataFactory(is);
         List<SourceCode> sources = factory.build();
         assertEquals(1, sources.size());
     }
@@ -26,7 +26,7 @@ public class SourceCodeFactoryTest {
     @Test
     public void shouldWorkWithRealCSV() throws Exception {
         InputStream is = new FileInputStream("src/main/resources/antcc.csv");
-        SourceCodeFactory factory = new SourceCodeFactory(is);
+        SourceCodeDataFactory factory = new SourceCodeDataFactory(is);
         List<SourceCode> sources = factory.build();
         assertEquals(28065, sources.size());
         for (SourceCode sourceCode : sources) {

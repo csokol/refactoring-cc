@@ -14,11 +14,11 @@ import org.metricminer.refactoringcc.model.SourceCode;
 
 import au.com.bytecode.opencsv.CSVReader;
 
-public class SourceCodeFactory {
+public class SourceCodeDataFactory {
 
     private CSVReader csvReader;
 
-    public SourceCodeFactory(InputStream is) {
+    public SourceCodeDataFactory(InputStream is) {
         csvReader = new CSVReader(new InputStreamReader(is), ';', '"');
     }
 
@@ -33,7 +33,7 @@ public class SourceCodeFactory {
                 String kind = line[2];
                 String cc = line[3];
                 String className = line[4];
-                sources.add(new SourceCode(message, date, kind, cc, className));
+                sources.add(new SourceCode(message, date, kind, Integer.parseInt(cc), className));
             }
             return sources;
         } catch (IOException e) {
