@@ -26,4 +26,12 @@ public class ProjectHistory {
         }
         return new ArrayList<Calendar>(dates);
     }
+    
+    public List<SourceCode> getSourcesFrom(Calendar date) {
+        List<SourceCode> sources = new ArrayList<SourceCode>();
+        for (ArtifactHistory artifact : artifacts) {
+            sources.addAll(artifact.getSourcesFrom(date));
+        }
+        return sources;
+    }
 }

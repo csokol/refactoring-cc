@@ -1,22 +1,32 @@
 package org.metricminer.refactoringcc.model;
 
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashSet;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class ArtifactHistory {
 
-    private Set<SourceCode> sources;
+    private Map<Calendar, List<SourceCode>> sourcesByDate;
     private String name;
 
     public ArtifactHistory(String className) {
-        name = className;
-        sources = new TreeSet<SourceCode>();
+        this.name = className;
+        this.sourcesByDate = new HashMap<Calendar, List<SourceCode>>();
     }
 
     public void addSource(SourceCode sc) {
-        sources.add(sc);
+        if (sourcesByDate.containsKey(sc.getDate())) {
+            List<SourceCode> sources = sourcesByDate.get(sc.getDate());
+            sources.add(sc);
+        } else {
+            List<SourceCode> sources = new ArrayList<SourceCode>();
+            sources.add(sc);
+            sourcesByDate.put(sc.getDate(), sources);
+        }
     }
 
     @Override
@@ -49,11 +59,15 @@ public class ArtifactHistory {
     }
 
     public Set<Calendar> getVersionDates() {
-        HashSet<Calendar> dates = new HashSet<Calendar>();
-        for (SourceCode sc : sources) {
-            dates.add(sc.getDate());
+        return sourcesByDate.keySet();
+    }
+
+    public Collection<? extends SourceCode> getSourcesFrom(Calendar date) {
+        List<SourceCode> sources = sourcesByDate.get(date);
+        if (sources == null) {
+            sources = new ArrayList<SourceCode>();
         }
-        return dates;
+        return sources;
     }
 
 }
