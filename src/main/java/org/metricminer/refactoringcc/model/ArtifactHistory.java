@@ -1,5 +1,7 @@
 package org.metricminer.refactoringcc.model;
 
+import java.util.Calendar;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -44,6 +46,14 @@ public class ArtifactHistory {
 
     public String getName() {
         return name;
+    }
+
+    public Set<Calendar> getVersionDates() {
+        HashSet<Calendar> dates = new HashSet<Calendar>();
+        for (SourceCode sc : sources) {
+            dates.add(sc.getDate());
+        }
+        return dates;
     }
 
 }
