@@ -1,0 +1,12 @@
+<ivy-module version="2.0">
+	<info organisation="metricminer" module="refactoring-cc" />
+
+	<configurations>
+		<conf name="default" description="dependencies used for compile" />
+		<conf name="test" description="dependencies used for tests" visibility="public" />
+	</configurations>
+
+	<dependencies>
+    	<dependency org="net.sf.opencsv" name="opencsv" rev="2.3"/>
+	</dependencies>
+</ivy-module>
