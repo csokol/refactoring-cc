@@ -35,4 +35,18 @@ public class ProjectHistory {
         }
         return sources;
     }
+    
+    public List<Commit> commits() {
+        List<Commit> commits = new ArrayList<Commit>();
+        List<Calendar> versionDates = getVersionDates();
+        Commit priorCommit = null;
+        for (Calendar date : versionDates) {
+            List<SourceCode> sourcesFrom = getSourcesFrom(date);
+            String message = sourcesFrom.get(0).getMessage();
+            Commit commit = new Commit(message, date, sourcesFrom, priorCommit);
+            commits.add(commit);
+            priorCommit = commit;
+        }
+        return commits;
+    }
 }
