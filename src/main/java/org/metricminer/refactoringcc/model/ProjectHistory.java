@@ -10,6 +10,7 @@ import java.util.List;
 public class ProjectHistory {
     
     private List<ArtifactHistory> artifacts;
+    private String name;
 
     public ProjectHistory(Collection<ArtifactHistory> artifacts) {
         this.artifacts = new ArrayList<ArtifactHistory>(artifacts);

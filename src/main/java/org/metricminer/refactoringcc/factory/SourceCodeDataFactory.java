@@ -33,7 +33,7 @@ public class SourceCodeDataFactory {
                 String kind = line[2];
                 String cc = line[3];
                 String className = line[4];
-                sources.add(new SourceCode(message, date, kind, Integer.parseInt(cc), className));
+                sources.add(new SourceCode(message, date, kind, Integer.parseInt(cc), className, "default"));
             }
             return sources;
         } catch (IOException e) {

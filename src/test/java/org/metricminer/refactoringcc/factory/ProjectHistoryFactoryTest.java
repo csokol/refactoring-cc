@@ -16,9 +16,9 @@ public class ProjectHistoryFactoryTest {
     @Test
     public void shouldBuildArtifactHistory() {
         List<SourceCode> sources = new ArrayList<SourceCode>();
-        sources.add(new SourceCode("message", Calendar.getInstance(), "NEW", 1, "class.java"));
-        sources.add(new SourceCode("message", Calendar.getInstance(), "NEW", 1, "class2.java"));
-        sources.add(new SourceCode("message", Calendar.getInstance(), "MODIFICATION", 1, "class2.java"));
+        sources.add(new SourceCode("message", Calendar.getInstance(), "NEW", 1, "class.java", "metricminer"));
+        sources.add(new SourceCode("message", Calendar.getInstance(), "NEW", 1, "class2.java", "metricminer"));
+        sources.add(new SourceCode("message", Calendar.getInstance(), "MODIFICATION", 1, "class2.java", "metricminer"));
         
         ProjectHistoryFactory factory = new ProjectHistoryFactory();
         ProjectHistory build = factory.build(sources);

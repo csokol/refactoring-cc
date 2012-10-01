@@ -9,14 +9,16 @@ public class SourceCode implements Comparable<SourceCode> {
     private final String kind;
     private final Integer cc;
     private final String className;
+    private final String projectName;
 
     public SourceCode(String message, Calendar date, String kind, Integer cc,
-            String className) {
+            String className, String projectName) {
                 this.message = message;
                 this.date = date;
                 this.kind = kind;
                 this.cc = cc;
                 this.className = className;
+                this.projectName = projectName;
     }
     
     public String getClassName() {
@@ -50,4 +52,7 @@ public class SourceCode implements Comparable<SourceCode> {
         return message;
     }
     
+    public String getProjectName() {
+        return projectName;
+    }
 }
