@@ -8,11 +8,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.apache.log4j.Logger;
 import org.metricminer.refactoringcc.model.ProjectHistory;
 import org.metricminer.refactoringcc.model.SourceCodeData;
 
 public class CCByDateDatasetGenerator implements DatasetGenerator {
+    
+    private static Logger log = Logger.getLogger(CCByDateDatasetGenerator.class);
 
+    @SuppressWarnings("rawtypes")
     @Override
     public Map<Comparable, Number> computeDatasetFor(ProjectHistory history) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh-mm");
@@ -40,9 +44,9 @@ public class CCByDateDatasetGenerator implements DatasetGenerator {
             }
             ccByDate.put(date, currentCC);
 
-            System.out.println("(" + deleted + " deleted) "
+            log.debug("(" + deleted + " deleted) "
                     + sourcesFrom.get(0).getMessage());
-            System.out.println(format.format(date.getTime()) + " - " + oldCC
+            log.debug(format.format(date.getTime()) + " - " + oldCC
                     + " -> " + currentCC + "\n");
         }
         return ccByDate;
