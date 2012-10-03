@@ -9,16 +9,16 @@ import java.util.List;
 import org.junit.Test;
 import org.metricminer.refactoringcc.model.ArtifactHistory;
 import org.metricminer.refactoringcc.model.ProjectHistory;
-import org.metricminer.refactoringcc.model.SourceCode;
+import org.metricminer.refactoringcc.model.SourceCodeData;
 
 public class ProjectHistoryFactoryTest {
 
     @Test
     public void shouldBuildArtifactHistory() {
-        List<SourceCode> sources = new ArrayList<SourceCode>();
-        sources.add(new SourceCode("message", Calendar.getInstance(), "NEW", 1, "class.java", "metricminer"));
-        sources.add(new SourceCode("message", Calendar.getInstance(), "NEW", 1, "class2.java", "metricminer"));
-        sources.add(new SourceCode("message", Calendar.getInstance(), "MODIFICATION", 1, "class2.java", "metricminer"));
+        List<SourceCodeData> sources = new ArrayList<SourceCodeData>();
+        sources.add(new SourceCodeData("message", Calendar.getInstance(), "NEW", 1, "class.java", "metricminer"));
+        sources.add(new SourceCodeData("message", Calendar.getInstance(), "NEW", 1, "class2.java", "metricminer"));
+        sources.add(new SourceCodeData("message", Calendar.getInstance(), "MODIFICATION", 1, "class2.java", "metricminer"));
         
         ProjectHistoryFactory factory = new ProjectHistoryFactory();
         ProjectHistory build = factory.build(sources);
@@ -28,5 +28,5 @@ public class ProjectHistoryFactoryTest {
         assertEquals("class.java", artifacts.get(0).getName());
         assertEquals("class2.java", artifacts.get(1).getName());
     }
-
+    
 }

@@ -6,14 +6,14 @@ import java.util.Map;
 
 import org.metricminer.refactoringcc.model.ArtifactHistory;
 import org.metricminer.refactoringcc.model.ProjectHistory;
-import org.metricminer.refactoringcc.model.SourceCode;
+import org.metricminer.refactoringcc.model.SourceCodeData;
 
 public class ProjectHistoryFactory {
 
-    public ProjectHistory build(List<SourceCode> sources) {
+    public ProjectHistory build(List<SourceCodeData> sources) {
         Map<String, ArtifactHistory> artifacts = new HashMap<String, ArtifactHistory>();
         
-        for (SourceCode source : sources) {
+        for (SourceCodeData source : sources) {
             String sourceName = source.getClassName();
             if (artifacts.containsKey(sourceName)) {
                 ArtifactHistory artifactHistory = artifacts.get(sourceName);

@@ -10,7 +10,7 @@ import java.util.List;
 public class ProjectHistory {
     
     private List<ArtifactHistory> artifacts;
-    private String name;
+    private String projectName;
 
     public ProjectHistory(Collection<ArtifactHistory> artifacts) {
         this.artifacts = new ArrayList<ArtifactHistory>(artifacts);
@@ -28,8 +28,8 @@ public class ProjectHistory {
         return new ArrayList<Calendar>(dates);
     }
     
-    public List<SourceCode> getSourcesFrom(Calendar date) {
-        List<SourceCode> sources = new ArrayList<SourceCode>();
+    public List<SourceCodeData> getSourcesFrom(Calendar date) {
+        List<SourceCodeData> sources = new ArrayList<SourceCodeData>();
         for (ArtifactHistory artifact : artifacts) {
             sources.addAll(artifact.getSourcesFrom(date));
         }
@@ -41,12 +41,16 @@ public class ProjectHistory {
         List<Calendar> versionDates = getVersionDates();
         Commit priorCommit = null;
         for (Calendar date : versionDates) {
-            List<SourceCode> sourcesFrom = getSourcesFrom(date);
+            List<SourceCodeData> sourcesFrom = getSourcesFrom(date);
             String message = sourcesFrom.get(0).getMessage();
             Commit commit = new Commit(message, date, sourcesFrom, priorCommit);
             commits.add(commit);
             priorCommit = commit;
         }
         return commits;
+    }
+    
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 }

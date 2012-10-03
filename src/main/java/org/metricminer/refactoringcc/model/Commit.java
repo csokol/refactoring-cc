@@ -6,18 +6,18 @@ import java.util.List;
 public class Commit {
     private String message;
     private Calendar date;
-    private List<SourceCode> sourcesModified;
+    private List<SourceCodeData> sourcesModified;
     private Commit priorCommit;
 
     public Commit(String message, Calendar date,
-            List<SourceCode> sourcesModified, Commit priorCommit) {
+            List<SourceCodeData> sourcesModified, Commit priorCommit) {
         this.message = message;
         this.date = date;
         this.sourcesModified = sourcesModified;
         this.priorCommit = priorCommit;
     }
 
-    public Commit(String message, Calendar date, List<SourceCode> sourcesModified) {
+    public Commit(String message, Calendar date, List<SourceCodeData> sourcesModified) {
         this(message, date, sourcesModified, null);
     }
 

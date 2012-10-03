@@ -20,16 +20,16 @@ public class ProjectHistoryTest {
 
     @Before
     public void setUp() throws ParseException {
-        List<SourceCode> sources = new ArrayList<SourceCode>();
+        List<SourceCodeData> sources = new ArrayList<SourceCodeData>();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         firstDate = Calendar.getInstance();
         secondDate = Calendar.getInstance();
         firstDate.setTime(simpleDateFormat.parse("2012-11-1"));
         secondDate.setTime(simpleDateFormat.parse("2012-12-1"));
         
-        sources.add(new SourceCode("message", firstDate, "NEW", 1, "class.java", "metricminer"));
-        sources.add(new SourceCode("message", firstDate, "NEW", 1, "class2.java", "metricminer"));
-        sources.add(new SourceCode("message", secondDate, "MODIFICATION", 1, "class2.java", "metricminer"));
+        sources.add(new SourceCodeData("message", firstDate, "NEW", 1, "class.java", "metricminer"));
+        sources.add(new SourceCodeData("message", firstDate, "NEW", 1, "class2.java", "metricminer"));
+        sources.add(new SourceCodeData("message", secondDate, "MODIFICATION", 1, "class2.java", "metricminer"));
         
         ProjectHistoryFactory factory = new ProjectHistoryFactory();
         history = factory.build(sources);
@@ -43,8 +43,8 @@ public class ProjectHistoryTest {
     
     @Test
     public void shouldGetSourcesFromDate() throws Exception {
-        List<SourceCode> sourcesFromFirstDate = history.getSourcesFrom(firstDate);
-        List<SourceCode> sourcesFromSecondDate = history.getSourcesFrom(secondDate);
+        List<SourceCodeData> sourcesFromFirstDate = history.getSourcesFrom(firstDate);
+        List<SourceCodeData> sourcesFromSecondDate = history.getSourcesFrom(secondDate);
         
         assertEquals(2, sourcesFromFirstDate.size());
         assertEquals("class.java", sourcesFromFirstDate.get(0).getClassName());

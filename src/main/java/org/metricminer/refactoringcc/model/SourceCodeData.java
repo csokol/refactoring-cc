@@ -2,7 +2,7 @@ package org.metricminer.refactoringcc.model;
 
 import java.util.Calendar;
 
-public class SourceCode implements Comparable<SourceCode> {
+public class SourceCodeData implements Comparable<SourceCodeData> {
 
     private final String message;
     private final Calendar date;
@@ -11,7 +11,7 @@ public class SourceCode implements Comparable<SourceCode> {
     private final String className;
     private final String projectName;
 
-    public SourceCode(String message, Calendar date, String kind, Integer cc,
+    public SourceCodeData(String message, Calendar date, String kind, Integer cc,
             String className, String projectName) {
                 this.message = message;
                 this.date = date;
@@ -27,7 +27,7 @@ public class SourceCode implements Comparable<SourceCode> {
 
     @Override
     public String toString() {
-        return "SourceCode [message=" + message + ", date=" + date + ", kind="
+        return "SourceCode [message=" + message + ", kind="
                 + kind + ", cc=" + cc + ", className=" + className + "]";
     }
     
@@ -36,7 +36,7 @@ public class SourceCode implements Comparable<SourceCode> {
     }
 
     @Override
-    public int compareTo(SourceCode o) {
+    public int compareTo(SourceCodeData o) {
         return date.compareTo(o.getDate());
     }
 

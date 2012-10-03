@@ -10,20 +10,20 @@ import java.util.Set;
 
 public class ArtifactHistory {
 
-    private Map<Calendar, List<SourceCode>> sourcesByDate;
+    private Map<Calendar, List<SourceCodeData>> sourcesByDate;
     private String name;
 
     public ArtifactHistory(String className) {
         this.name = className;
-        this.sourcesByDate = new HashMap<Calendar, List<SourceCode>>();
+        this.sourcesByDate = new HashMap<Calendar, List<SourceCodeData>>();
     }
 
-    public void addSource(SourceCode sc) {
+    public void addSource(SourceCodeData sc) {
         if (sourcesByDate.containsKey(sc.getDate())) {
-            List<SourceCode> sources = sourcesByDate.get(sc.getDate());
+            List<SourceCodeData> sources = sourcesByDate.get(sc.getDate());
             sources.add(sc);
         } else {
-            List<SourceCode> sources = new ArrayList<SourceCode>();
+            List<SourceCodeData> sources = new ArrayList<SourceCodeData>();
             sources.add(sc);
             sourcesByDate.put(sc.getDate(), sources);
         }
@@ -62,10 +62,10 @@ public class ArtifactHistory {
         return sourcesByDate.keySet();
     }
 
-    public Collection<? extends SourceCode> getSourcesFrom(Calendar date) {
-        List<SourceCode> sources = sourcesByDate.get(date);
+    public Collection<? extends SourceCodeData> getSourcesFrom(Calendar date) {
+        List<SourceCodeData> sources = sourcesByDate.get(date);
         if (sources == null) {
-            sources = new ArrayList<SourceCode>();
+            sources = new ArrayList<SourceCodeData>();
         }
         return sources;
     }

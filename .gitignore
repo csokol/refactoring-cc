@@ -1,3 +1,5 @@
 *.jar
 *.class
 *.png
+src/main/resources/history.csv
+bin/

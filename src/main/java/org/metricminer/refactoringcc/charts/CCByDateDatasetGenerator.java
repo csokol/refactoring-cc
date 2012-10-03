@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.metricminer.refactoringcc.model.ProjectHistory;
-import org.metricminer.refactoringcc.model.SourceCode;
+import org.metricminer.refactoringcc.model.SourceCodeData;
 
 public class CCByDateDatasetGenerator implements DatasetGenerator {
 
@@ -24,9 +24,9 @@ public class CCByDateDatasetGenerator implements DatasetGenerator {
 
         for (Calendar date : dates) {
             Integer oldCC = currentCC;
-            List<SourceCode> sourcesFrom = history.getSourcesFrom(date);
+            List<SourceCodeData> sourcesFrom = history.getSourcesFrom(date);
             int deleted = 0;
-            for (SourceCode sc : sourcesFrom) {
+            for (SourceCodeData sc : sourcesFrom) {
                 if (ccByClass.containsKey(sc.getClassName())) {
                     Integer oldThisCC = ccByClass.get(sc.getClassName()).intValue();
                     currentCC -= oldThisCC;

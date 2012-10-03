@@ -10,7 +10,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import org.metricminer.refactoringcc.model.SourceCode;
+import org.metricminer.refactoringcc.model.SourceCodeData;
 
 import au.com.bytecode.opencsv.CSVReader;
 
@@ -22,18 +22,19 @@ public class SourceCodeDataFactory {
         csvReader = new CSVReader(new InputStreamReader(is), ';', '"');
     }
 
-    public List<SourceCode> build() {
+    public List<SourceCodeData> build() {
         try {
-            List<SourceCode> sources = new ArrayList<SourceCode>();
+            List<SourceCodeData> sources = new ArrayList<SourceCodeData>();
             List<String[]> lines = csvReader.readAll();
             for (int i = 1; i < lines.size(); i++) {
                 String[] line = lines.get(i);
                 String message = line[0];
-                Calendar date = parseDate(line[1]);
-                String kind = line[2];
-                String cc = line[3];
-                String className = line[4];
-                sources.add(new SourceCode(message, date, kind, Integer.parseInt(cc), className, "default"));
+                String projectName = line[1];
+                Calendar date = parseDate(line[2]);
+                String kind = line[3];
+                String cc = line[4];
+                String className = line[5];
+                sources.add(new SourceCodeData(message, date, kind, Integer.parseInt(cc), className, projectName));
             }
             return sources;
         } catch (IOException e) {
