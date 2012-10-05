@@ -10,6 +10,7 @@
     	<dependency org="net.sf.opencsv" name="opencsv" rev="2.3"/>
     	<dependency org="org.jfree" name="jfreechart" rev="1.0.14"/>
     	<dependency org="log4j" name="log4j" rev="1.2.16"/>
+    	<dependency org="org.apache.lucene" name="lucene-core" rev="2.2.0"/>
 	</dependencies>
 	
 </ivy-module>

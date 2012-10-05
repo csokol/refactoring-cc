@@ -10,12 +10,15 @@ public class RefactoringFinder {
     public List<Commit> find(List<Commit> commits) {
         ArrayList<Commit> refactoringCommits = new ArrayList<Commit>();
         for (Commit commit : commits) {
-            if (commit.getMessage().contains("Refactoring")
-                    || commit.getMessage().contains("refactoring")) {
+            if (isRefactoring(commit)) {
                 refactoringCommits.add(commit);
             }
         }
         return refactoringCommits;
+    }
+
+    private boolean isRefactoring(Commit commit) {
+        return new IsRefactoring().isRefactoring(commit.getMessage());
     }
 
 }

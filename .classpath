@@ -22,6 +22,7 @@
 	<classpathentry kind="lib" path="lib/log4j-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-sources.jar"/>
 	<classpathentry kind="lib" path="lib/mail.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-core.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
