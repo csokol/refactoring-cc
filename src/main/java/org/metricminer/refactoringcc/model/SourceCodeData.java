@@ -55,4 +55,8 @@ public class SourceCodeData implements Comparable<SourceCodeData> {
     public String getProjectName() {
         return projectName;
     }
+
+    public boolean isDelete() {
+        return kind.equals("DELETED");
+    }
 }

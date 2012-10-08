@@ -13,12 +13,12 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 
-public class SimpleChart {
+public class LineChart {
 
     private JFreeChart chart;
 
     @SuppressWarnings("rawtypes")
-    public SimpleChart(Map<Comparable, Number> data) {
+    public LineChart(Map<Comparable, Number> data) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         Set<Entry<Comparable, Number>> entrySet = data.entrySet();
         for (Entry<Comparable, Number> entry : entrySet) {

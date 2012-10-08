@@ -27,9 +27,10 @@ public class ProjectHistoryTest {
         firstDate.setTime(simpleDateFormat.parse("2012-11-1"));
         secondDate.setTime(simpleDateFormat.parse("2012-12-1"));
         
-        sources.add(new SourceCodeData("message", firstDate, "NEW", 1, "class.java", "metricminer"));
-        sources.add(new SourceCodeData("message", firstDate, "NEW", 1, "class2.java", "metricminer"));
-        sources.add(new SourceCodeData("message", secondDate, "MODIFICATION", 1, "class2.java", "metricminer"));
+        sources.add(new SourceCodeData("message1", firstDate, "NEW", 10, "class.java", "metricminer"));
+        sources.add(new SourceCodeData("message1", firstDate, "NEW", 5, "class2.java", "metricminer"));
+        sources.add(new SourceCodeData("message2", secondDate, "MODIFICATION", 10, "class2.java", "metricminer"));
+        sources.add(new SourceCodeData("message2", secondDate, "DELETED", 0, "class.java", "metricminer"));
         
         ProjectHistoryFactory factory = new ProjectHistoryFactory();
         history = factory.build(sources);
@@ -49,8 +50,20 @@ public class ProjectHistoryTest {
         assertEquals(2, sourcesFromFirstDate.size());
         assertEquals("class.java", sourcesFromFirstDate.get(0).getClassName());
         assertEquals("class2.java", sourcesFromFirstDate.get(1).getClassName());
-        assertEquals(1, sourcesFromSecondDate.size());
-        assertEquals("class2.java", sourcesFromSecondDate.get(0).getClassName());
+        assertEquals(2, sourcesFromSecondDate.size());
+        assertEquals("class.java", sourcesFromSecondDate.get(0).getClassName());
+        assertEquals("class2.java", sourcesFromSecondDate.get(1).getClassName());
+    }
+    
+    @Test
+    public void shouldGroupsCommits() throws Exception {
+        List<Commit> commits = history.commits();
+        
+        assertEquals(2, commits.size());
+        assertEquals("message1", commits.get(0).getMessage());
+        assertEquals(15, commits.get(0).getTotalCC());
+        assertEquals("message2", commits.get(1).getMessage());
+        assertEquals(10, commits.get(1).getTotalCC());
     }
 
 
