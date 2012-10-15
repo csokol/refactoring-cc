@@ -48,4 +48,8 @@ public class Commit {
         }
         return Effect.INCREASE;
     }
+
+    public boolean decreasedCC() {
+        return priorCommit != null && this.priorCommit.getTotalCC() > totalCC;
+    }
 }

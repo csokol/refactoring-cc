@@ -14,7 +14,7 @@ import org.metricminer.refactoringcc.charts.LineChart;
 import org.metricminer.refactoringcc.factory.ProjectHistoryFactory;
 import org.metricminer.refactoringcc.factory.SourceCodeDataFactory;
 import org.metricminer.refactoringcc.factory.SourceCodeDataSplitter;
-import org.metricminer.refactoringcc.finder.RefactoringFinder;
+import org.metricminer.refactoringcc.finder.RefactoringFilter;
 import org.metricminer.refactoringcc.model.Commit;
 import org.metricminer.refactoringcc.model.Commit.Effect;
 import org.metricminer.refactoringcc.model.ProjectHistory;
@@ -29,11 +29,10 @@ public class Main {
         InputStream is;
         is = new FileInputStream(
                 "/home/csokol/ime/tcc/new-workspace/cc-50-projects.csv");
-//        is = new FileInputStream("src/main/resources/antcc.csv");
         SourceCodeDataFactory factory = new SourceCodeDataFactory(is);
         List<SourceCodeData> allSources = factory.build();
         List<List<SourceCodeData>> sourcesFromProjects = new SourceCodeDataSplitter()
-                .split(allSources);
+                .splitProjects(allSources);
 
         HashMap<Effect, Integer> effectsCount = new HashMap<Commit.Effect, Integer>();
         effectsCount.put(Effect.DECREASE, 0);
@@ -49,7 +48,7 @@ public class Main {
             LineChart simpleChart = new LineChart(ccByDate);
             //simpleChart.saveAsPng("grafico-" + new Slugged(projectName) + ".png");
 
-            List<Commit> commits = new RefactoringFinder().find(history
+            List<Commit> commits = new RefactoringFilter().filter(history
                     .commits());
             for (Commit commit : commits) {
                 logger.debug(commit.getTotalCC());

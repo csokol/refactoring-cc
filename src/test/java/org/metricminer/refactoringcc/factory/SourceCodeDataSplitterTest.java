@@ -20,7 +20,7 @@ public class SourceCodeDataSplitterTest {
         sources.add(new SourceCodeData("message", Calendar.getInstance(), "MODIFICATION", 1, "class3.java", "maven"));
         
         SourceCodeDataSplitter splitter = new SourceCodeDataSplitter();
-        List<List<SourceCodeData>> sourcesSplitted = splitter.split(sources);
+        List<List<SourceCodeData>> sourcesSplitted = splitter.splitProjects(sources);
         assertEquals(2, sourcesSplitted.size());
         assertEquals(2, sourcesSplitted.get(0).size());
         assertEquals(2, sourcesSplitted.get(1).size());
