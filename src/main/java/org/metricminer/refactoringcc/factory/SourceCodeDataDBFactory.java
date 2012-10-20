@@ -1,52 +1,31 @@
 package org.metricminer.refactoringcc.factory;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.metricminer.refactoringcc.model.SourceCodeData;
 
-import au.com.bytecode.opencsv.CSVReader;
-
-public class SourceCodeDataFactory {
-    private static Logger logger = Logger.getLogger(SourceCodeDataFactory.class);
-
-    private CSVReader csvReader;
-
-    public SourceCodeDataFactory(InputStream is) {
-        csvReader = new CSVReader(new InputStreamReader(is), ';', '"');
-    }
-
-    public SourceCodeDataFactory() {
+public class SourceCodeDataDBFactory {
+    
+    private EntryDao dao;
+    
+    public SourceCodeDataDBFactory(EntryDao dao) {
+        this.dao = dao;
     }
 
     public List<SourceCodeData> build() {
-        try {
-            List<SourceCodeData> sources = new ArrayList<SourceCodeData>();
-            csvReader.readNext();
-            for (String[] line = csvReader.readNext(); line != null; line = csvReader.readNext()) {
-                try {
-                    SourceCodeData data = buildData(line);
-                    sources.add(data);
-                } catch (Exception e) {
-                    logger.error("could not parse line: " + Arrays.asList(line), e);
-                }
-            }
-            csvReader.close();
-            return sources;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        ArrayList<SourceCodeData> result = new ArrayList<SourceCodeData>();
+        List<String[]> list = dao.list();
+        for (String[] row : list) {
+            result.add(buildData(row));
         }
+        return result;
     }
-    
+
     private SourceCodeData buildData(String[] line) {
         String message = line[0];
         String projectName = line[1];
@@ -71,7 +50,6 @@ public class SourceCodeDataFactory {
         instance.setTime(date);
         return instance;
     }
-    
-    
+
 
 }

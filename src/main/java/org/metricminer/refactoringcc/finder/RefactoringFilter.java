@@ -18,7 +18,7 @@ public class RefactoringFilter implements Filter {
         return refactoringCommits;
     }
 
-    private boolean isRefactoring(Commit commit) {
+    protected boolean isRefactoring(Commit commit) {
         return new IsRefactoring().isRefactoring(commit.getMessage());
     }
 

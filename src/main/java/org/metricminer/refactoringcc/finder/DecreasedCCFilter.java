@@ -11,11 +11,15 @@ public class DecreasedCCFilter implements Filter {
     public List<Commit> filter(List<Commit> commits) {
         ArrayList<Commit> filteredCommits = new ArrayList<Commit>();
         for (Commit commit : commits) {
-            if (commit.decreasedCC()) {
+            if (shouldFIlter(commit)) {
                 filteredCommits.add(commit);
             }
         }
         return filteredCommits;
+    }
+
+    protected boolean shouldFIlter(Commit commit) {
+        return commit.decreasedCC();
     }
 
 }

@@ -1,8 +1,11 @@
 package org.metricminer.refactoringcc;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.FilenameFilter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -13,12 +16,23 @@ public class ComputeEffects {
     private static Logger logger = Logger.getLogger(ComputeEffects.class);
 
     public static void main(String[] args) throws FileNotFoundException {
-        InputStream is;
-        is = new FileInputStream(
-                "/home/csokol/ime/tcc/new-workspace/cc-50-projects.csv");
-        SourceCodeDataFactory factory = new SourceCodeDataFactory(is);
-        List<SourceCodeData> allSources = factory.build();
-        computeEffects(allSources);
+        List<SourceCodeData> allSources = new ArrayList<SourceCodeData>();
+        File[] dataFiles = new File("src/main/resources/data/")
+                .listFiles(new FilenameFilter() {
+                    @Override
+                    public boolean accept(File dir, String name) {
+                        return name.endsWith(".csv");
+                    }
+                });
+
+        List<File> files = Arrays.asList(dataFiles);
+
+        for (File file : files) {
+            logger.debug("loading data from: " + file);
+            List<SourceCodeData> sourcesData = new SourceCodeDataFactory(
+                    new FileInputStream(file)).build();
+            allSources.addAll(sourcesData);
+        }
     }
 
     private static void computeEffects(List<SourceCodeData> allSources) {

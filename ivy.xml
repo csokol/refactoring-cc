@@ -11,6 +11,8 @@
     	<dependency org="org.jfree" name="jfreechart" rev="1.0.14"/>
     	<dependency org="log4j" name="log4j" rev="1.2.16"/>
     	<dependency org="org.apache.lucene" name="lucene-core" rev="2.2.0"/>
+    	<dependency org="mysql" name="mysql-connector-java" rev="5.1.21"/>
+    	
 	</dependencies>
 	
 </ivy-module>
