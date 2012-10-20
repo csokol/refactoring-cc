@@ -32,6 +32,12 @@ public class EntryDaoTest {
         assertTrue(projects.contains("Apache Ant"));
         assertTrue(projects.contains("Apache Abdera"));
     }
+    
+    @Test
+    public void shouldEntriesFromProject() {
+        List<String[]> entries = dao.entriesFromProject("Apache Abdera");
+        assertEquals(5454, entries.size());
+    }
 
 
 }
