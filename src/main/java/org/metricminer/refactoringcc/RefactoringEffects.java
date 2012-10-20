@@ -81,16 +81,16 @@ public class RefactoringEffects {
             
 
             
-            printWriter.println(String.format("%d; %d; %d; %d", refactoringDecreasedCCTotal, refactoringIncreasedCCTotal, notRefactoringDecreasedCCTotal, notRefactoringIncreasedCCTotal));
+//            printWriter.println(String.format("%d; %d; %d; %d", refactoringDecreasedCCTotal, refactoringIncreasedCCTotal, notRefactoringDecreasedCCTotal, notRefactoringIncreasedCCTotal));
             
             totalDoc += documentedRefactorings.size();
             totalUndoc += decreasedCC.size() - documentedRefactorings.size();
         }
-        logger.debug("\n\n\n totals:");
-        logger.debug("         total commits: " + totalCommits);
-        logger.debug("    total decreased cc: " + (totalDoc + totalUndoc));
-        logger.debug("documented refactoring: " + totalDoc);
-        logger.debug("       not refactoring: " + totalUndoc);
+//        logger.debug("\n\n\n totals:");
+//        logger.debug("         total commits: " + totalCommits);
+//        logger.debug("    total decreased cc: " + (totalDoc + totalUndoc));
+//        logger.debug("documented refactoring: " + totalDoc);
+//        logger.debug("       not refactoring: " + totalUndoc);
 
     }
 

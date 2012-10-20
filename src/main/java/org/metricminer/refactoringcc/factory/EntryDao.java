@@ -84,7 +84,6 @@ public class EntryDao {
         PreparedStatement st;
         try {
             st = connection.prepareStatement(sql);
-            System.out.println(st);
             ResultSet rs = st.executeQuery();
             return rs;
         } catch (SQLException e) {

@@ -2,7 +2,6 @@ package org.metricminer.refactoringcc;
 
 import java.io.FileNotFoundException;
 import java.sql.Connection;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -15,16 +14,17 @@ public class ComputeEffectsDB {
     private static Logger logger = Logger.getLogger(ComputeEffectsDB.class);
 
     public static void main(String[] args) throws FileNotFoundException {
-        List<SourceCodeData> allSources = new ArrayList<SourceCodeData>();
-        Connection connection = new ConnectionFactory().openConnection("jdbc:mysql://localhost/refactoring-cc-test");
+        Connection connection = new ConnectionFactory().openConnection("jdbc:mysql://localhost/refactoring-cc");
         EntryDao entryDao = new EntryDao(connection);
         SourceCodeDataDBFactory factory = new SourceCodeDataDBFactory(entryDao);
         
         List<String> projects = entryDao.projects();
+        int i = 1;
         for (String project : projects) {
-            List<SourceCodeData> build = factory.build(project);
-            logger.debug("starting to compute effects");
-            computeEffects(build);
+            List<SourceCodeData> sources = factory.build(project);
+            logger.debug("project " + i + " out of " + projects.size());
+            computeEffects(sources);
+            i++;
         }
         
     }
