@@ -73,4 +73,8 @@ public class ProjectHistory {
     public void setProjectName(String projectName) {
         this.projectName = projectName;
     }
+
+    public String getProjectName() {
+        return this.projectName;
+    }
 }
