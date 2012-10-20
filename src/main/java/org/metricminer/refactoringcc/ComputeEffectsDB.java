@@ -16,12 +16,17 @@ public class ComputeEffectsDB {
 
     public static void main(String[] args) throws FileNotFoundException {
         List<SourceCodeData> allSources = new ArrayList<SourceCodeData>();
-        Connection connection = new ConnectionFactory().openConnection("jdbc:mysql://localhost/refactoring-cc");
+        Connection connection = new ConnectionFactory().openConnection("jdbc:mysql://localhost/refactoring-cc-test");
         EntryDao entryDao = new EntryDao(connection);
         SourceCodeDataDBFactory factory = new SourceCodeDataDBFactory(entryDao);
-        allSources = factory.build();
-        logger.debug("starting to compute effects");
-        computeEffects(allSources);
+        
+        List<String> projects = entryDao.projects();
+        for (String project : projects) {
+            List<SourceCodeData> build = factory.build(project);
+            logger.debug("starting to compute effects");
+            computeEffects(build);
+        }
+        
     }
 
     private static void computeEffects(List<SourceCodeData> allSources) {

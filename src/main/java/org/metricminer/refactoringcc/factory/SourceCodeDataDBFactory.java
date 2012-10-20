@@ -21,5 +21,14 @@ public class SourceCodeDataDBFactory extends SourceCodeDataFactory {
         }
         return result;
     }
+    
+    public List<SourceCodeData> build(String projectName) {
+        ArrayList<SourceCodeData> result = new ArrayList<SourceCodeData>();
+        List<String[]> entries = dao.entriesFromProject(projectName);
+        for (String[] row : entries) {
+            result.add(buildData(row));
+        }
+        return result;
+    }
 
 }
