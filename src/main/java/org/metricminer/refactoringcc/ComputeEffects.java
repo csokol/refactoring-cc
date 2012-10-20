@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.metricminer.refactoringcc.factory.SourceCodeDataFactory;
+import org.metricminer.refactoringcc.factory.SourceCodeDataCSVFactory;
 import org.metricminer.refactoringcc.model.SourceCodeData;
 
 public class ComputeEffects {
@@ -29,7 +29,7 @@ public class ComputeEffects {
 
         for (File file : files) {
             logger.debug("loading data from: " + file);
-            List<SourceCodeData> sourcesData = new SourceCodeDataFactory(
+            List<SourceCodeData> sourcesData = new SourceCodeDataCSVFactory(
                     new FileInputStream(file)).build();
             allSources.addAll(sourcesData);
         }

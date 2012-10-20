@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 import org.metricminer.refactoringcc.charts.CCByDateDatasetGenerator;
 import org.metricminer.refactoringcc.charts.LineChart;
 import org.metricminer.refactoringcc.factory.ProjectHistoryFactory;
-import org.metricminer.refactoringcc.factory.SourceCodeDataFactory;
+import org.metricminer.refactoringcc.factory.SourceCodeDataCSVFactory;
 import org.metricminer.refactoringcc.factory.SourceCodeDataSplitter;
 import org.metricminer.refactoringcc.finder.RefactoringFilter;
 import org.metricminer.refactoringcc.model.Commit;
@@ -29,7 +29,7 @@ public class Main {
         InputStream is;
         is = new FileInputStream(
                 "/home/csokol/ime/tcc/new-workspace/cc-50-projects.csv");
-        SourceCodeDataFactory factory = new SourceCodeDataFactory(is);
+        SourceCodeDataCSVFactory factory = new SourceCodeDataCSVFactory(is);
         List<SourceCodeData> allSources = factory.build();
         List<List<SourceCodeData>> sourcesFromProjects = new SourceCodeDataSplitter()
                 .splitProjects(allSources);
