@@ -26,8 +26,10 @@ public class ComputeEffectsDB {
         String line = String.format("project;" + 
                 "documented refactorings decreasing cc;" +
         		"documented refactorings increasing cc;" +
+        		"documented refactorings equalizing cc;" +
         		"undocumented refactorings decreasing cc;" +
-        		"undocumented increasing decreasing cc;");
+        		"undocumented refactorings increasing cc;" +
+        		"undocumented refactorings equalizing cc;");
         printWriter.println(line);
         
         List<String> projects = entryDao.projects();
@@ -52,13 +54,15 @@ public class ComputeEffectsDB {
         
         int notRefactoringDecreasedCCTotal = results.get(0);
         int notRefactoringIncreasedCCTotal = results.get(1);
-        int refactoringDecreasedCCTotal = results.get(2);
-        int refactoringIncreasedCCTotal = results.get(3);
+        int notRefactoringEqualizedCCTotal = results.get(2);
+        int refactoringDecreasedCCTotal = results.get(3);
+        int refactoringIncreasedCCTotal = results.get(4);
+        int refactoringEqualizedCCTotal = results.get(5);
         
         
-        String line = String.format("%s; %d; %d; %d; %d", projectName, refactoringDecreasedCCTotal,
-                refactoringIncreasedCCTotal, notRefactoringDecreasedCCTotal,
-                notRefactoringIncreasedCCTotal);
+        String line = String.format("%s; %d; %d; %d; %d; %d; %d", projectName, refactoringDecreasedCCTotal,
+                refactoringIncreasedCCTotal, refactoringEqualizedCCTotal, notRefactoringDecreasedCCTotal,
+                notRefactoringIncreasedCCTotal, notRefactoringEqualizedCCTotal);
         printWriter.println(line);
     }
 }

@@ -6,7 +6,7 @@ public class IncreasedCCFilter extends DecreasedCCFilter {
     
     @Override
     protected boolean shouldFIlter(Commit commit) {
-        return !commit.decreasedCC();
+        return commit.increasedCC();
     }
 
 }

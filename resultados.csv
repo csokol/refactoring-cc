@@ -1,0 +1,259 @@
+project;documented refactorings decreasing cc;documented refactorings increasing cc;documented refactorings equalizing cc;undocumented refactorings decreasing cc;undocumented refactorings increasing cc;undocumented refactorings equalizing cc;
+Apache Abdera; 13; 19; 2; 92; 450; 352
+Apache Accumulo; 0; 0; 0; 38; 164; 122
+Apache ACE (incubating); 1; 10; 4; 20; 132; 79
+Apache ActiveMQ; 13; 60; 21; 221; 1910; 1022
+Apache ActiveMQ ActiveIO; 1; 0; 1; 6; 9; 21
+Apache ActiveMQ Apollo; 5; 6; 3; 97; 300; 247
+Apache ActiveMQ CPP; 0; 4; 0; 6; 24; 39
+Apache ActiveMQ Protobuf; 0; 0; 0; 2; 17; 7
+Apache Ambari; 3; 3; 3; 22; 90; 65
+Apache Amber (incubating); 1; 0; 2; 17; 111; 91
+Apache Ant; 27; 52; 6; 540; 2164; 2029
+Apache Archiva; 13; 21; 3; 276; 1028; 859
+Apache Archiva sandbox; 0; 0; 0; 1; 2; 4
+Apache Aries; 4; 17; 11; 136; 749; 460
+Apache Avro; 0; 2; 0; 28; 225; 88
+Apache Axis1; 30; 40; 30; 547; 2284; 1460
+Apache Axis2 transports; 0; 5; 2; 18; 91; 90
+Apache Axis2/C; 0; 0; 0; 1; 0; 1
+Apache Axis2/Java; 40; 72; 55; 724; 2818; 1973
+Apache Batik; 0; 4; 4; 151; 754; 472
+Apache Bean Validation; 0; 0; 1; 12; 81; 102
+Apache Bigtop; 0; 0; 0; 0; 9; 8
+Apache Bookkeeper; 0; 0; 0; 10; 117; 35
+Apache Buildr; 0; 0; 0; 1; 13; 12
+Apache Camel; 30; 85; 27; 706; 4951; 3145
+Apache Cassandra; 6; 26; 15; 602; 1315; 1235
+Apache Cayenne; 100; 169; 110; 460; 2175; 1403
+Apache Chainsaw; 2; 7; 2; 41; 200; 171
+Apache Chemistry OpenCMIS; 13; 8; 5; 52; 330; 184
+Apache Chukwa (Incubating); 1; 4; 0; 26; 168; 113
+Apache Clerezza; 6; 6; 4; 60; 288; 300
+Apache Cocoon; 28; 98; 41; 638; 1652; 1813
+Apache Commons CLI; 2; 5; 2; 29; 121; 105
+Apache Commons Codec; 3; 4; 6; 15; 81; 259
+Apache Commons Collections; 3; 17; 7; 99; 432; 564
+Apache Commons Compress; 0; 0; 0; 36; 196; 259
+Apache Commons Exec; 0; 1; 1; 12; 43; 77
+Apache Commons FileUpload; 0; 1; 0; 8; 34; 44
+Apache Commons IO; 4; 3; 4; 40; 186; 288
+Apache Commons Lang; 1; 8; 5; 89; 253; 505
+Apache Commons Logging; 1; 0; 1; 31; 68; 91
+Apache Commons Math; 6; 12; 3; 296; 730; 1026
+Apache Commons Transaction; 0; 0; 0; 2; 19; 27
+Apache Commons Validator; 2; 9; 3; 35; 88; 139
+Apache Continuum; 3; 9; 2; 180; 681; 497
+Apache Cordova Android; 2; 7; 0; 70; 231; 215
+Apache Cordova blackberry-webworks; 1; 1; 0; 13; 58; 55
+Apache Cordova iOS; 0; 2; 0; 20; 81; 62
+Apache CouchDB; 0; 0; 0; 1; 0; 1
+Apache CXF; 34; 88; 18; 630; 3909; 1946
+Apache CXF Distributed OSGi; 1; 3; 0; 20; 99; 54
+Apache DeltaCloud; 0; 0; 0; 0; 0; 1
+Apache DeltaSpike; 2; 2; 5; 53; 171; 191
+Apache Derby; 5; 9; 5; 397; 1248; 1135
+Apache DirectMemory; 0; 5; 1; 19; 91; 119
+Apache Directory Clients; 0; 1; 0; 4; 11; 9
+Apache Directory Daemon; 0; 1; 1; 1; 13; 18
+Apache Directory Installers; 0; 0; 1; 3; 14; 29
+Apache Directory Project; 3; 10; 13; 141; 428; 526
+Apache Directory Samples; 0; 0; 0; 0; 0; 3
+Apache Directory Server; 27; 35; 73; 616; 1439; 2086
+Apache Directory Shared; 23; 14; 31; 358; 791; 1038
+Apache Directory Studio; 17; 19; 17; 159; 657; 629
+Apache Directory Studio Plugin; 0; 0; 0; 1; 7; 11
+Apache Empire-db; 0; 1; 0; 22; 137; 122
+Apache ESME (incubating); 0; 0; 0; 1; 3; 2
+Apache Etch (incubating); 0; 1; 1; 3; 26; 33
+Apache Felix; 28; 56; 23; 365; 1524; 1182
+Apache Flex (Incubating); 0; 0; 0; 0; 4; 12
+Apache Flex - Whiteboard (Incubating); 0; 0; 0; 0; 1; 1
+Apache Flume; 1; 2; 1; 46; 314; 167
+Apache FOP; 8; 35; 17; 420; 1490; 1189
+Apache Forrest; 4; 14; 2; 35; 164; 181
+Apache FtpServer; 7; 15; 5; 66; 259; 248
+Apache Geronimo; 18; 31; 10; 672; 2922; 1874
+Apache Geronimo Devtools; 5; 15; 5; 120; 380; 238
+Apache Geronimo genesis; 0; 3; 0; 9; 40; 30
+Apache Geronimo gshell; 9; 12; 5; 166; 508; 493
+Apache Geronimo jaspi; 1; 0; 0; 0; 13; 5
+Apache Geronimo javamail; 0; 0; 0; 5; 18; 14
+Apache Geronimo specs; 0; 0; 0; 70; 239; 223
+Apache Geronimo txmanager; 0; 1; 0; 3; 29; 11
+Apache Geronimo xbean; 0; 5; 0; 24; 248; 97
+Apache Geronimo yoko; 0; 0; 0; 8; 10; 11
+Apache Giraph; 0; 2; 0; 26; 140; 79
+Apache Gora; 0; 0; 0; 8; 37; 16
+Apache Hadoop common; 1; 40; 6; 243; 1824; 778
+Apache Hadoop HBase; 5; 19; 2; 282; 1151; 849
+Apache Hadoop HDFS; 0; 4; 3; 49; 275; 188
+Apache Hadoop MapReduce; 0; 8; 0; 50; 311; 135
+Apache Hadoop ZooKeeper; 0; 3; 0; 26; 230; 114
+Apache Hama; 7; 9; 11; 80; 236; 201
+Apache Harmony; 0; 2; 1; 14; 65; 57
+Apache HCatalog; 0; 3; 1; 21; 84; 46
+Apache Hive; 2; 4; 0; 62; 622; 182
+Apache HttpClient; 5; 17; 5; 98; 451; 467
+Apache HttpComponents HttpAsyncClient; 1; 2; 0; 19; 40; 32
+Apache HttpCore; 15; 23; 6; 145; 571; 535
+Apache Ivy; 4; 19; 4; 52; 561; 281
+Apache IvyDE; 2; 7; 0; 19; 113; 65
+Apache Jackrabbit; 5; 18; 10; 463; 1909; 1592
+Apache Jackrabbit Oak; 10; 12; 14; 191; 525; 531
+Apache James; 21; 33; 13; 345; 961; 727
+Apache James IMAP; 4; 5; 2; 146; 254; 266
+Apache James jSPF; 5; 16; 3; 47; 127; 135
+Apache James Mailbox; 0; 4; 0; 44; 127; 122
+Apache James Mime4j; 4; 9; 4; 53; 191; 162
+Apache James protocols; 1; 3; 0; 60; 162; 157
+Apache Jena - ARQ (Incubating); 0; 1; 0; 302; 1133; 969
+Apache Jena - core (Incubating); 20; 50; 13; 342; 1359; 861
+Apache Jena - Eyeball (Incubating); 1; 3; 4; 19; 179; 56
+Apache Jena - Fuseki (Incubating); 0; 1; 0; 27; 86; 122
+Apache Jena - IRI (Incubating); 0; 0; 0; 7; 25; 15
+Apache Jena - Joseki (Incubating); 1; 1; 1; 37; 141; 172
+Apache Jena - LARQ (Incubating); 0; 0; 0; 5; 18; 17
+Apache Jena - SDB (Incubating); 0; 1; 0; 146; 433; 380
+Apache Jena - Site (Incubating); 0; 0; 0; 0; 0; 1
+Apache Jena - TDB (Incubating); 1; 0; 0; 223; 857; 920
+Apache JMeter; 7; 11; 4; 400; 1323; 1802
+Apache JSPWiki (incubating); 11; 19; 19; 155; 962; 1889
+Apache Kafka; 0; 0; 0; 1; 3; 2
+Apache Kalument (Incubating); 0; 2; 1; 1; 18; 9
+Apache Kandula; 2; 1; 4; 8; 35; 26
+Apache Karaf; 14; 16; 13; 120; 632; 403
+Apache Karaf Cellar; 3; 1; 1; 18; 88; 52
+Apache Lenya; 34; 39; 24; 428; 1509; 1256
+Apache log4cxx; 0; 0; 0; 1; 2; 1
+Apache log4j; 5; 7; 3; 243; 776; 640
+Apache log4j component; 1; 0; 0; 5; 8; 11
+Apache log4j extras; 0; 0; 0; 6; 25; 22
+Apache log4j receivers; 0; 0; 0; 6; 18; 11
+Apache log4j zeroconf; 0; 0; 0; 2; 3; 3
+Apache Lucene & Solr; 7; 26; 4; 496; 1541; 1525
+Apache Lucy; 0; 0; 0; 1; 1; 5
+Apache Mahout; 16; 31; 8; 238; 719; 570
+Apache Maven; 16; 34; 8; 489; 1567; 1199
+Apache Maven 2; 7; 16; 5; 254; 978; 714
+Apache Maven 3; 18; 43; 13; 535; 1768; 1348
+Apache Maven ant tasks; 0; 0; 3; 9; 57; 68
+Apache Maven App Engine; 0; 1; 0; 3; 11; 10
+Apache Maven archetype; 0; 2; 3; 48; 115; 168
+Apache Maven Doxia; 1; 1; 1; 73; 239; 288
+Apache Maven Doxia sitetools; 0; 0; 0; 5; 34; 86
+Apache Maven Doxia tools; 0; 1; 0; 5; 24; 30
+Apache Maven enforcer; 1; 3; 5; 7; 35; 34
+Apache Maven Indexer; 0; 0; 0; 7; 43; 39
+Apache Maven Integration Testing; 2; 5; 1; 139; 677; 601
+Apache Maven jxr; 0; 0; 0; 2; 15; 18
+Apache Maven mercury; 2; 7; 6; 38; 243; 114
+Apache Maven plugin testing; 0; 0; 0; 2; 12; 8
+Apache Maven plugin tools; 1; 0; 2; 12; 75; 134
+Apache Maven plugins; 18; 55; 31; 311; 1423; 1558
+Apache Maven release; 0; 1; 1; 10; 92; 129
+Apache Maven repository tools; 0; 0; 0; 2; 11; 10
+Apache Maven resources; 0; 0; 0; 0; 4; 7
+Apache Maven sandbox; 3; 17; 5; 130; 490; 321
+Apache Maven scm; 5; 4; 0; 73; 462; 465
+Apache Maven shared; 1; 4; 1; 41; 315; 274
+Apache Maven site; 0; 0; 0; 1; 0; 1
+Apache Maven Surefire; 6; 9; 4; 99; 396; 220
+Apache Maven wagon; 0; 10; 2; 42; 160; 116
+Apache MINA; 4; 8; 7; 161; 443; 543
+Apache MINA SSHD; 1; 2; 3; 5; 79; 47
+Apache MRUnit; 0; 0; 0; 16; 37; 33
+Apache MyFaces; 5; 8; 5; 181; 794; 558
+Apache MyFaces ExtCDI (CODI); 8; 32; 17; 81; 351; 271
+Apache MyFaces ExtVal; 6; 26; 10; 32; 208; 111
+Apache MyFaces Html5 Renderkit; 2; 2; 1; 4; 15; 19
+Apache MyFaces Portlet-Bridge; 0; 0; 0; 1; 4; 5
+Apache MyFaces Scripting; 7; 21; 22; 62; 232; 127
+Apache NPanday; 0; 5; 3; 51; 169; 174
+Apache NPanday ITs; 0; 0; 1; 13; 72; 118
+Apache Nutch; 1; 6; 2; 90; 377; 252
+Apache Nuvem; 1; 5; 3; 4; 29; 21
+Apache ODE; 5; 10; 4; 213; 771; 602
+Apache OFBiz; 19; 33; 23; 264; 817; 1228
+Apache Oozie; 0; 5; 1; 20; 173; 78
+Apache OpenEJB; 17; 65; 15; 504; 2448; 1419
+Apache OpenJPA; 7; 21; 9; 172; 1234; 735
+Apache OpenNLP (Incubating); 7; 5; 6; 47; 139; 202
+Apache OpenWebBeans; 4; 5; 8; 161; 590; 524
+Apache PDFBox; 1; 4; 3; 47; 253; 155
+Apache Photark - Mobile (Incubating); 0; 0; 0; 1; 2; 5
+Apache Photark - Server (Incubating); 1; 5; 7; 9; 49; 33
+Apache Pig; 0; 1; 2; 64; 504; 178
+Apache Pivot; 1; 8; 6; 297; 1008; 721
+Apache Pluto; 18; 30; 8; 117; 351; 271
+Apache POI; 25; 55; 9; 214; 1786; 820
+Apache Qpid; 13; 27; 1; 316; 1215; 724
+Apache Rampart; 0; 2; 0; 25; 156; 107
+Apache RAT (incubating); 0; 1; 0; 27; 41; 65
+Apache Rave; 2; 24; 5; 32; 278; 132
+Apache Redback components; 0; 0; 0; 7; 4; 43
+Apache Redback core; 0; 1; 0; 12; 5; 86
+Apache River; 11; 14; 14; 30; 75; 114
+Apache Roller; 2; 7; 10; 211; 586; 537
+Apache S4; 2; 5; 1; 27; 88; 45
+Apache Sandesha; 8; 5; 4; 51; 202; 131
+Apache Santuario Java; 13; 11; 14; 97; 315; 254
+Apache Savan; 1; 0; 0; 1; 8; 8
+Apache ServiceMix 3; 11; 21; 8; 111; 708; 468
+Apache ServiceMix 4 bundles; 0; 0; 0; 2; 13; 4
+Apache ServiceMix 4 features; 0; 1; 3; 18; 79; 82
+Apache ServiceMix 4 kernel; 1; 0; 0; 19; 134; 68
+Apache ServiceMix 4 NMR; 2; 5; 2; 20; 127; 72
+Apache ServiceMix 4 specs; 0; 0; 0; 2; 40; 14
+Apache ServiceMix archetypes; 0; 0; 0; 3; 13; 8
+Apache ServiceMix components; 0; 1; 1; 7; 26; 23
+Apache ServiceMix Documentation; 0; 0; 0; 1; 1; 1
+Apache ServiceMix Maven plug-ins; 0; 0; 0; 0; 1; 2
+Apache ServiceMix utils; 0; 1; 0; 5; 34; 18
+Apache Shindig; 10; 35; 8; 224; 986; 683
+Apache Shiro; 9; 24; 4; 140; 433; 370
+Apache Sling; 9; 23; 20; 391; 1430; 1100
+Apache Solr; 8; 14; 1; 103; 621; 554
+Apache Sqoop; 0; 5; 0; 20; 113; 28
+Apache Stanbol (incubating); 15; 26; 16; 130; 389; 336
+Apache Struts 1; 15; 21; 8; 152; 623; 681
+Apache Struts 2; 3; 15; 8; 126; 549; 567
+Apache Struts Maven; 0; 0; 1; 4; 8; 11
+Apache Struts Sandbox; 6; 16; 9; 118; 446; 253
+Apache Subversion; 1; 0; 1; 32; 143; 226
+Apache Synapse; 33; 50; 37; 207; 1027; 681
+Apache Tapestry 3; 5; 5; 1; 124; 448; 251
+Apache Tapestry 4; 14; 29; 4; 231; 1035; 578
+Apache Thrift (incubating); 0; 0; 0; 21; 132; 92
+Apache Tika; 2; 4; 4; 109; 535; 325
+Apache Tiles; 11; 19; 19; 119; 362; 261
+Apache Tomcat; 13; 32; 34; 342; 988; 1512
+Apache Tomcat 5.5.x; 0; 0; 0; 5; 30; 42
+Apache Tomcat 6.0.x; 0; 1; 4; 40; 246; 262
+Apache Tomcat 7.0.x; 12; 26; 27; 252; 899; 1312
+Apache Tomcat Connectors; 1; 3; 0; 46; 144; 91
+Apache Tomcat Maven plugin; 0; 0; 0; 1; 39; 50
+Apache Tomcat Native; 0; 0; 0; 14; 53; 40
+Apache TrafficServer; 0; 0; 0; 1; 0; 4
+Apache Tuscany DAS; 2; 0; 0; 42; 125; 68
+Apache Tuscany SCA 1.x; 85; 153; 83; 961; 3125; 2433
+Apache Tuscany SCA 2.x; 100; 184; 91; 1271; 4339; 3362
+Apache Tuscany SCA C++; 0; 0; 3; 5; 11; 13
+Apache Tuscany SDO; 0; 1; 0; 31; 154; 91
+Apache Vysper; 0; 11; 2; 42; 246; 176
+Apache Wave; 0; 1; 0; 5; 28; 27
+Apache Web Services Axiom; 24; 43; 11; 164; 665; 373
+Apache Web Services Commons XMLSchema; 0; 3; 0; 15; 88; 55
+Apache Web Services Neethi; 0; 6; 0; 23; 86; 66
+Apache Weinre; 0; 0; 0; 6; 10; 8
+Apache Whirr; 1; 2; 1; 19; 140; 82
+Apache Wicket; 43; 82; 66; 1142; 3659; 4721
+Apache Wink (incubating); 1; 3; 3; 28; 223; 125
+Apache WSS4J; 10; 17; 2; 86; 366; 201
+Apache Xalan Java; 0; 1; 0; 172; 700; 638
+Apache Xerces2 Java; 1; 1; 0; 143; 653; 674
+Apache XML Graphics Commons; 0; 2; 0; 16; 131; 71
+Apache XMLBeans; 10; 16; 1; 69; 410; 181
+Commons Sanselan; 0; 8; 1; 17; 80; 86
+TGI EHSS Grupo 1; 0; 0; 0; 0; 0; 1
+TGI EHSS Grupo 2; 0; 0; 0; 0; 0; 1

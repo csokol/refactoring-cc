@@ -52,4 +52,12 @@ public class Commit {
     public boolean decreasedCC() {
         return priorCommit != null && this.priorCommit.getTotalCC() > totalCC;
     }
+    
+    public boolean increasedCC() {
+        return priorCommit != null && this.priorCommit.getTotalCC() < totalCC;
+    }
+    
+    public boolean equalCC() {
+        return priorCommit != null && this.priorCommit.getTotalCC() < totalCC;
+    }
 }

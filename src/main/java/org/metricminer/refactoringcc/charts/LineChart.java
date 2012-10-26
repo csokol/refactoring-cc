@@ -21,6 +21,7 @@ public class LineChart {
     public LineChart(Map<Comparable, Number> data) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         Set<Entry<Comparable, Number>> entrySet = data.entrySet();
+        int i = 0;
         for (Entry<Comparable, Number> entry : entrySet) {
             dataset.addValue(entry.getValue(), "CC", entry.getKey());
         }

@@ -1,5 +1,7 @@
 package org.metricminer.refactoringcc;
 
+import static java.util.Collections.unmodifiableList;
+
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -83,16 +85,20 @@ public class RefactoringEffects {
     public List<Integer> calculateEffectsFor(ProjectHistory history) {
         List<Commit> commits = history.commits();
 
-        List<Commit> documentedRefactorings = refactoringFilter
-                .filter(commits);
-        List<Commit> notRefactoring = notRefactoringFilter.filter(commits);
+        List<Commit> documentedRefactorings = unmodifiableList(refactoringFilter
+                .filter(commits));
+        List<Commit> notRefactoring = unmodifiableList(notRefactoringFilter.filter(commits));
         
         int notRefactoringDecreasedCCTotal = decreasedCCFilter.filter(notRefactoring).size();
         int notRefactoringIncreasedCCTotal = increaseCCFilter.filter(notRefactoring).size();
+        int notRefactoringEqualizedCCTotal = notRefactoring.size() - notRefactoringIncreasedCCTotal - notRefactoringDecreasedCCTotal;
+        
         int refactoringDecreasedCCTotal = decreasedCCFilter.filter(documentedRefactorings).size();
         int refactoringIncreasedCCTotal = increaseCCFilter.filter(documentedRefactorings).size();
-        int totalNotRefactoring = notRefactoringDecreasedCCTotal + notRefactoringIncreasedCCTotal;
-        int totalRefactoring = refactoringDecreasedCCTotal + refactoringIncreasedCCTotal; 
+        int refactoringEqualizedCCTotal = documentedRefactorings.size() - refactoringDecreasedCCTotal - refactoringIncreasedCCTotal;
+        
+        int totalNotRefactoring = notRefactoring.size();
+        int totalRefactoring = documentedRefactorings.size(); 
         
         logger.debug("");
         logger.debug("project name: " + history.getProjectName());
@@ -100,21 +106,21 @@ public class RefactoringEffects {
         logger.debug("                  total: "
                 + totalRefactoring);
         logger.debug("            decreased cc: " + refactoringDecreasedCCTotal);
-        logger.debug("            increased cc: "
-                + refactoringIncreasedCCTotal);
+        logger.debug("            increased cc: " + refactoringIncreasedCCTotal);
+        logger.debug("            equalized cc: " + refactoringEqualizedCCTotal);
         
         logger.debug("=== Not Refactoring ===");
         logger.debug("                 total: "
                 + totalNotRefactoring);
         logger.debug("          decreased cc: "
                 + notRefactoringDecreasedCCTotal);
-        logger.debug("          increased cc: "
-                + notRefactoringIncreasedCCTotal);
+        logger.debug("          increased cc: " + notRefactoringIncreasedCCTotal);
+        logger.debug("          equalized cc: " + notRefactoringEqualizedCCTotal);
         
 
         return Arrays.asList(notRefactoringDecreasedCCTotal,
-                notRefactoringIncreasedCCTotal, refactoringDecreasedCCTotal,
-                refactoringIncreasedCCTotal);
+                notRefactoringIncreasedCCTotal, notRefactoringEqualizedCCTotal, refactoringDecreasedCCTotal,
+                refactoringIncreasedCCTotal, refactoringEqualizedCCTotal);
     }
 
 }

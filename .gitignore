@@ -4,3 +4,4 @@
 src/main/resources/history.csv
 src/main/resources/data/
 bin/
+.~lock*

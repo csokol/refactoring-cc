@@ -44,10 +44,10 @@ public class CCByDateDatasetGenerator implements DatasetGenerator {
             }
             ccByDate.put(date, currentCC);
 
-            log.debug("(" + deleted + " deleted) "
-                    + sourcesFrom.get(0).getMessage());
-            log.debug(format.format(date.getTime()) + " - " + oldCC
-                    + " -> " + currentCC + "\n");
+//            log.debug("(" + deleted + " deleted) "
+//                    + sourcesFrom.get(0).getMessage());
+//            log.debug(format.format(date.getTime()) + " - " + oldCC
+//                    + " -> " + currentCC + "\n");
         }
         return ccByDate;
     }
