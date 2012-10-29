@@ -2,50 +2,61 @@ package org.metricminer.refactoringcc;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.JFrame;
+
 import org.apache.log4j.Logger;
+import org.jfree.chart.ChartPanel;
 import org.metricminer.refactoringcc.charts.CCByDateDatasetGenerator;
 import org.metricminer.refactoringcc.charts.LineChart;
 import org.metricminer.refactoringcc.factory.ConnectionFactory;
 import org.metricminer.refactoringcc.factory.EntryDao;
 import org.metricminer.refactoringcc.factory.ProjectHistoryFactory;
 import org.metricminer.refactoringcc.factory.SourceCodeDataDBFactory;
+import org.metricminer.refactoringcc.model.Commit;
 import org.metricminer.refactoringcc.model.ProjectHistory;
 import org.metricminer.refactoringcc.model.SourceCodeData;
-import org.metricminer.refactoringcc.util.Slugged;
 
-public class BuildCharts {
+public class AnalyzeSingleProject {
 
-    private static Logger logger = Logger.getLogger(BuildCharts.class);
+    private static Logger logger = Logger.getLogger(AnalyzeSingleProject.class);
 
     public static void main(String[] args) throws IOException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
         Connection connection = new ConnectionFactory()
                 .openConnection("jdbc:mysql://localhost/refactoring-cc");
         EntryDao entryDao = new EntryDao(connection);
         SourceCodeDataDBFactory factory = new SourceCodeDataDBFactory(entryDao);
 
-        List<String> projects = entryDao.projects();
-        int i = 1;
-        for (String project : projects) {
-            List<SourceCodeData> sources = factory.build(project);
-            String projectName = sources.get(0).getProjectName();
-            logger.debug("project " + i + " out of " + projects.size());
-            ProjectHistory history = new ProjectHistoryFactory().build(sources);
-            buildChart(projectName, history);
-            i++;
+        List<SourceCodeData> sources = factory.build("Apache Ant");
+        ProjectHistory history = new ProjectHistoryFactory().build(sources);
+        List<Commit> commits = history.commits();
+        for (Commit commit : commits) {
+            if (commit.getPriorCommit() != null) {
+                int delta = commit.getTotalCC() - commit.getPriorCommit().getTotalCC();
+                if (Math.abs(delta) > 1000) {
+                    logger.debug(commit.getMessage());
+                    logger.debug(format.format(commit.getDate().getTime()));
+                    logger.debug("delta: " + delta);
+                }
+            }
         }
-
-    }
-
-    private static void buildChart(String projectName, ProjectHistory history)
-            throws IOException {
+        
         Map<Comparable, Number> ccByDate = new CCByDateDatasetGenerator()
-                .computeDatasetFor(history);
-        LineChart simpleChart = new LineChart(ccByDate, projectName);
-        simpleChart.saveAsPng("graficos/grafico-" + new Slugged(projectName)
-                + ".png");
+        .computeDatasetFor(history);
+        LineChart simpleChart = new LineChart(ccByDate, "Apache Ant");
+        ChartPanel chartPanel = new ChartPanel(simpleChart.getChart());
+        JFrame win = new JFrame("");
+        win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        win.add(chartPanel);
+        
+        win.pack();
+        win.setSize(1024, 768);
+        win.setVisible(true);
+
     }
 
 }

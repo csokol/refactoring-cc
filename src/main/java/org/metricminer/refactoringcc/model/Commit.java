@@ -60,4 +60,8 @@ public class Commit {
     public boolean equalCC() {
         return priorCommit != null && this.priorCommit.getTotalCC() < totalCC;
     }
+    
+    public Calendar getDate() {
+        return date;
+    }
 }

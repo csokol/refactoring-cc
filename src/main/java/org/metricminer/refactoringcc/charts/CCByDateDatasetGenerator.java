@@ -3,14 +3,13 @@ package org.metricminer.refactoringcc.charts;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
+import org.metricminer.refactoringcc.model.Commit;
 import org.metricminer.refactoringcc.model.ProjectHistory;
-import org.metricminer.refactoringcc.model.SourceCodeData;
 
 public class CCByDateDatasetGenerator implements DatasetGenerator {
     
@@ -19,36 +18,19 @@ public class CCByDateDatasetGenerator implements DatasetGenerator {
     @SuppressWarnings("rawtypes")
     @Override
     public Map<Comparable, Number> computeDatasetFor(ProjectHistory history) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh-mm");
-        Map<String, Number> ccByClass = new HashMap<String, Number>();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
         Map<Comparable, Number> ccByDate = new TreeMap<Comparable, Number>();
         List<Calendar> dates = history.getVersionDates();
         Collections.sort(dates);
-        Integer currentCC = 0;
-
-        for (Calendar date : dates) {
-            Integer oldCC = currentCC;
-            List<SourceCodeData> sourcesFrom = history.getSourcesFrom(date);
-            int deleted = 0;
-            for (SourceCodeData sc : sourcesFrom) {
-                if (ccByClass.containsKey(sc.getClassName())) {
-                    Integer oldThisCC = ccByClass.get(sc.getClassName()).intValue();
-                    currentCC -= oldThisCC;
-                }
-                if (!sc.getKind().equals("DELETED")) {
-                    currentCC += sc.getCC();
-                    ccByClass.put(sc.getClassName(), sc.getCC());
-                } else {
-                    deleted++;
-                }
-            }
-            ccByDate.put(date, currentCC);
-
-//            log.debug("(" + deleted + " deleted) "
-//                    + sourcesFrom.get(0).getMessage());
-//            log.debug(format.format(date.getTime()) + " - " + oldCC
-//                    + " -> " + currentCC + "\n");
+        
+        int commitCount = 1;
+        List<Commit> commits = history.commits();
+        for (Commit commit : commits) {
+            ccByDate.put(commit.getDate(), commit.getTotalCC());
+            commitCount++;
+            
         }
+
         return ccByDate;
     }
 
