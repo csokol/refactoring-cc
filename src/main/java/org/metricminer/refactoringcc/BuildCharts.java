@@ -1,9 +1,13 @@
 package org.metricminer.refactoringcc;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 import org.metricminer.refactoringcc.charts.CCByDateDatasetGenerator;
@@ -25,6 +29,7 @@ public class BuildCharts {
                 .openConnection("jdbc:mysql://localhost/refactoring-cc");
         EntryDao entryDao = new EntryDao(connection);
         SourceCodeDataDBFactory factory = new SourceCodeDataDBFactory(entryDao);
+        new File("csv").mkdir();
 
         List<String> projects = entryDao.projects();
         int i = 1;
@@ -33,16 +38,27 @@ public class BuildCharts {
             String projectName = sources.get(0).getProjectName();
             logger.debug("project " + i + " out of " + projects.size());
             ProjectHistory history = new ProjectHistoryFactory().build(sources);
-            buildChart(projectName, history);
+            Map<Comparable, Number> ccByDate = new CCByDateDatasetGenerator().computeDatasetFor(history);
+            buildChart(projectName, ccByDate);
+            saveCsv(projectName, ccByDate);
             i++;
         }
 
     }
 
-    private static void buildChart(String projectName, ProjectHistory history)
+    private static void saveCsv(String projectName, Map<Comparable, Number> ccByDate) throws FileNotFoundException {
+        File file = new File("csv/" + new Slugged(projectName) + ".csv");
+        PrintWriter printWriter = new PrintWriter(file);
+        int version = 0;
+        for (Entry<Comparable, Number> entry : ccByDate.entrySet()) {
+            printWriter.println(version + ";" + entry.getValue());
+            version++;
+        }
+        printWriter.close();
+    }
+
+    private static void buildChart(String projectName, Map<Comparable, Number> ccByDate)
             throws IOException {
-        Map<Comparable, Number> ccByDate = new CCByDateDatasetGenerator()
-                .computeDatasetFor(history);
         LineChart simpleChart = new LineChart(ccByDate, projectName);
         simpleChart.saveAsPng("graficos/grafico-" + new Slugged(projectName)
                 + ".png");

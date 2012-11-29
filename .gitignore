@@ -6,3 +6,4 @@ src/main/resources/data/
 bin/
 .~lock*
 data/dump.sql
+csv/
