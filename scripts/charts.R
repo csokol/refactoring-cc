@@ -31,8 +31,8 @@ dev.off()
 
 jpeg('plot2.png')
 plot(withRefactorings$total.commits, 
-    withRefactorings$unrefactorings.decreasing.ratio.doc, 
-    col="blue", pch=19, 
+    withRefactorings$refactorings.decreasing.ratio.undoc, 
+    col="blue", pch=19, ylim=c(0,1.0), 
     main="Common commits decreasing CC ratio \n versus commit count")
 dev.off()
 

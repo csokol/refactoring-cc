@@ -7,3 +7,6 @@ bin/
 .~lock*
 data/dump.sql
 csv/
+.RData
+.Rhistory
+*.swp
