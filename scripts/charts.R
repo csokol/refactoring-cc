@@ -21,18 +21,22 @@ withRefactorings = cleanResults[cleanResults$documented.refactorings.total > 0,]
 withRefactorings$refactorings.decreasing.ratio.doc = withRefactorings$documented.refactorings.decreasing.cc / withRefactorings$documented.refactorings.total
 withRefactorings$refactorings.decreasing.ratio.undoc = withRefactorings$undocumented.refactorings.decreasing.cc / withRefactorings$undocumented.refactorings.total
 
-jpeg('plot1.png')
+png('plot1.png')
 plot(withRefactorings$total.commits, 
-    withRefactorings$refactorings.decreasing.ratio.doc, 
-    col="blue", pch=19, 
-    main="Documented refactorings decreasing CC \n ratio versus commit count")
+    withRefactorings$refactorings.decreasing.ratio.doc * 100, 
+    col="blue", pch=19, ylim=c(0,100), 
+    ylab="Percentage of documented refactorings decreasing CC", 
+    xlab="Total commit count", 
+    main="Documented refactorings decreasing CC \n versus project commit count")
 dev.off()
 
 
-jpeg('plot2.png')
+png('plot2.png')
 plot(withRefactorings$total.commits, 
-    withRefactorings$refactorings.decreasing.ratio.undoc, 
-    col="blue", pch=19, ylim=c(0,1.0), 
-    main="Common commits decreasing CC ratio \n versus commit count")
+    withRefactorings$refactorings.decreasing.ratio.undoc * 100, 
+    col="blue", pch=19, ylim=c(0,100), 
+    ylab="Percentage of common commits decreasing CC", 
+    xlab="Total commit count", 
+    main="Common commits decreasing CC \n versus commit count")
 dev.off()
 
